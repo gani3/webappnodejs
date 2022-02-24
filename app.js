@@ -1,5 +1,9 @@
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const {
+  bacaFile,
+  detailkontak
+} = require('./utils/contact')
 const app = express();
 const port = 3000;
 
@@ -30,13 +34,33 @@ app.get('/about', (req, res) => {
   });
 });
 
-app.get('/contact', (req, res) => {
-  res.render('contact', {
+app.get('/contact/list', (req, res) => {
+  const bacafile = bacaFile();
+  res.render('contact/list', {
     title: 'Webapps Nodejs',
     judul: 'Halaman contact',
+    bacafile,
     layout: 'layout/main'
   });
 })
+
+app.get('/contact/list/:nama', (req, res) => {
+  const detail = detailkontak(req.params.nama);
+  res.render('contact/detail', {
+    title: 'Webapps Nodejs',
+    judul: 'Detail Kontak',
+    detail,
+    layout: 'layout/main'
+  });
+})
+
+app.get('/contact/tambah', (req, res) => {
+  res.render('contact/tambah', {
+    title: 'Webapps Nodejs',
+    judul: 'Tambah Kontak',
+    layout: 'layout/main'
+  });
+});
 
 app.use('/', (req, res) => {
   res.status(404);
