@@ -1,0 +1,27 @@
+{
+  "name": "17-express-contact-app",
+  "version": "1.0.0",
+  "description": "Webapps Nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gani3/webappnodejs.git"
+  },
+  "keywords": [
+    "webbapps"
+  ],
+  "author": "Gani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gani3/webappnodejs/issues"
+  },
+  "homepage": "https://github.com/gani3/webappnodejs#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}
