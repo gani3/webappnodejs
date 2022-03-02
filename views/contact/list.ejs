@@ -4,6 +4,11 @@
       <h2>Daftar Kontak</h2>
       <a href="/contact/tambah" class="btn btn-sm btn-primary">Tambah data</a>
       <br><br>
+      <% if (msg.length != 0) { %>
+      <div class="alert alert-success" role="alert">
+        <%= msg %>
+      </div>
+      <% } %>
       <table class="table table-sm table-hover">
         <thead>
           <tr>
@@ -35,7 +40,7 @@
               <a href="/contact/list/<%= list.nohp  %>" class="btn btn-sm btn-success badge rounded-pill "> <i
                   class="bi bi-info-circle"> Detail</i>
               </a>
-              <a href="/contact/list/<%= list.nohp  %>" class="btn btn-sm btn-danger badge rounded-pill"> <i
+              <a href="/contact/hapus/<%= list.nohp  %>" class="btn btn-sm btn-danger badge rounded-pill"> <i
                   class="bi bi-trash"> Hapus</i> </a>
             </td>
           </tr>

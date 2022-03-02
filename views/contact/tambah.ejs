@@ -2,21 +2,30 @@
   <div class="row">
     <div class="col-md-8 mt-4">
       <h2><%= judul %></h2>
+      <% if (typeof errors != 'undifined' && errors.length != 0  ) { %>
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <% errors.forEach(error => { %>
+          <li> <%= error.msg %> </li>
+          <% }) %>
+        </ul>
+      </div>
+      <% } %>
       <form action="/contact/tambah" method="post">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" name="nama" class="form-control" id="nama" required>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="exampleInputPassword1">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">No Hp</label>
-          <input type="number" class="form-control" id="exampleInputPassword1">
+          <label for="nohp" class="form-label">No Hp</label>
+          <input type="number" name="nohp" class="form-control" id="nohp" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Tambahkan</button>
         <a href="/contact/list" class="btn btn-secondary float-right">Cancel</a>
       </form>
     </div>

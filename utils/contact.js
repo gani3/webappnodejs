@@ -26,9 +26,39 @@ const detailkontak = (nohp) => {
   return detail;
 }
 
+//menimpa file contact.json dengan data yang baru
+const simpanContact = (contact) => {
+  fs.writeFileSync('data/contact.json', JSON.stringify(contact));
+};
+
+
+// menambahkan data kontak baru kedalam file contact.json
+const tambahKontak = (contact) => {
+  const contacts = bacaFile();
+  contacts.push(contact);
+  simpanContact(contacts);
+}
+
+// melihat data duplikat
+const cekDuplikat = (nohp) => {
+  const contact = bacaFile();
+  return contact.find((contact) =>
+    contact.nohp === nohp
+  );
+
+}
+
+const hapusKontak = (contact) => {
+  const contacts = bacaFile();
+  const hapus = contacts.find(contacts.nohp === contact.nohp);
+
+}
 
 
 module.exports = {
   bacaFile,
-  detailkontak
+  detailkontak,
+  tambahKontak,
+  hapusKontak,
+  cekDuplikat
 }
